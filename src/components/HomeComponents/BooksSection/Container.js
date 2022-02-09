@@ -5,6 +5,8 @@ const Container = styled.div`
     width: 100%;
     heigth: 200px;
 
+    display: flex;
+    gap: 15px;
     p {
         padding-bottom: 10px;
     }

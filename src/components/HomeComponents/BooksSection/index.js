@@ -1,14 +1,10 @@
 
 import Book from './Book';
 import Container from './Container';
+import Cover from './Cover';
 
-export default function BooksSection(props) {
-    return (
-        <Container>
-            <p>{props.titleSection}</p>
-            <Book>
-                teste
-            </Book>
-        </Container>
-    );
+export {
+    Book,
+    Container,
+    Cover
 }
