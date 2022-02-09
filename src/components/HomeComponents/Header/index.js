@@ -4,6 +4,10 @@ import { Bag, Container, LogoText, SearchBox, User } from "./style/index";
 export default function Header(){
     const [userName, setUserName] = useState();
 
+    function handleChange(e) {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+    
     return (
         <Container>
             <div>
