@@ -8,8 +8,7 @@ body, html {
   width: 100%;
   height: 100%;
 
-  background: #8C11BE;
-
+  background-color: #f7f9fa;
 
   font-family: 'Raleway', sans-serif;
 }
@@ -17,24 +16,4 @@ body, html {
 .root {
   width: 100%;
   height: 100%;
-}
-
-button.success>abbr {
-  background-color: #8CC654;
-
-  padding: 10px 11px;
-
-  color: #000000;
-
-  border-radius: 50px;
-}
-
-button.failure>abbr {
-  background-color: #E65666;
-
-  padding: 10px 11px;
-
-  color: #000000;
-
-  border-radius: 50px;
 }
