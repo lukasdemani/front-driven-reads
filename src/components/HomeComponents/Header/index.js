@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Bag, Container, LogoText, SearchBox, User } from "./style/index";
+import { useNavigate } from "react-router-dom";
+import { Bag, Container, SearchBox, User } from "./style/index";
+import Logo from "../../Logo"
 
-export default function Header(){
+export default function Header() {
     const [userName, setUserName] = useState();
+    const navigate = useNavigate()
 
     return (
         <Container>
@@ -10,22 +13,20 @@ export default function Header(){
                 <User>
                     {userName ?
                         <>Olá, {userName}</>
-                    :
-                        <>
+                        :
+                        <div onClick={() => navigate("/login")}>
                             <ion-icon name="log-in-outline"></ion-icon>
                             <p>Entre ou cadastre-se</p>
-                        </>
+                        </div>
                     }
                 </User>
-                
+
                 <Bag>
                     <ion-icon name="cart-outline"></ion-icon>
                 </Bag>
             </div>
 
-            <LogoText>
-                Driven Reads
-            </LogoText>
+            <Logo />
 
             <SearchBox>
                 <input type='text' placeholder='Busca'></input>
