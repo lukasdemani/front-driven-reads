@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const Bag = styled.div `
     font-size: 20px;
-    padding-right: 7px;
+    margin-right: 7px;
+    margin-left: auto;
 `;
 
 export default Bag;

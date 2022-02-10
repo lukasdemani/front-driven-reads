@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 const LogoText = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100px;
+    font-size: 50px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 50px;
+
+    h1 {
+        margin: auto;
+    }
 `;
 
 export default LogoText;

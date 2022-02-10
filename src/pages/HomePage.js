@@ -20,6 +20,10 @@ export default function HomePage() {
         });
     
       }, []);
+
+    function filterBooks(section){
+        allBooks.filter((book) => book)
+    }
     
     return (
         <>
@@ -32,6 +36,7 @@ export default function HomePage() {
                         <Cover>
                             <img src='https://www.designcomcafe.com.br/wp-content/uploads/2017/08/capas-de-livros-solo.jpg'></img>
                         </Cover>
+                        <p>{book.book.title}</p>
                     </Book>
                 )}
                 </BooksScroll>
@@ -43,6 +48,7 @@ export default function HomePage() {
                         <Cover>
                             <img src='https://www.designcomcafe.com.br/wp-content/uploads/2017/08/capas-de-livros-solo.jpg'></img>
                         </Cover>
+                        <p>{book.book.title}</p>
                     </Book>
                 )}
                 </BooksScroll>
@@ -54,6 +60,7 @@ export default function HomePage() {
                         <Cover>
                             <img src='https://www.designcomcafe.com.br/wp-content/uploads/2017/08/capas-de-livros-solo.jpg'></img>
                         </Cover>
+                        <p>{book.book.title}</p>
                     </Book>
                 )}
                 </BooksScroll>
@@ -65,6 +72,7 @@ export default function HomePage() {
                         <Cover>
                             <img src='https://www.designcomcafe.com.br/wp-content/uploads/2017/08/capas-de-livros-solo.jpg'></img>
                         </Cover>
+                        <p>{book.book.title}</p>
                     </Book>
                 )}
                 </BooksScroll>

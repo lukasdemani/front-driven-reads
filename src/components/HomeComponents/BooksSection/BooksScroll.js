@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const BooksScroll = styled.div `
-    width: 100%;
+    width: auto;
     overflow-x: scroll;
-    white-space: nowrap;
     display: flex;
     gap: 15px;
+    flex-shirnk: 0;
 
     p {
         padding-bottom: 10px;

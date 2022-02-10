@@ -33,11 +33,18 @@ function getBooks(token) {
   return promise;
 }
 
+function searchBook(body){
+  const promise = axios.post(`${BASE_URL}/search`, body);
+
+  return promise;
+}
+
 const api = {
   login,
   signUp,
   addBook,
-  getBooks
+  getBooks,
+  searchBook
 }
 
 export default api;
