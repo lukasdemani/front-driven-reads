@@ -6,6 +6,8 @@ const User = styled.div`
 
     font-size: 17px;
     padding-left: 7px;
+
+    cursor: pointer;
 `;
 
 export default User;

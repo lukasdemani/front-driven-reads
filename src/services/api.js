@@ -1,52 +1,28 @@
-import axios from 'axios';
+import axios from "axios"
+import dotenv from "dotenv"
+dotenv.config()
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = process.env.REACT_APP_API_BASE_URL
 
 function createConfig(token) {
   return { headers: { Authorization: `Bearer ${token}` } };
 }
 
-function login(body) {
-  const promise = axios.post(`${BASE_URL}/sign-in`, body);
-
-  return promise;
-}
-
 function signUp(body) {
-  const promise = axios.post(`${BASE_URL}/sign-up`, body);
+  const promise = axios.post(`${BASE_URL}/sign-up`, body)
 
-  return promise;
+  return promise
 }
 
-function registerTransaction(body) {
-  const promise = axios.post(`${BASE_URL}/transactions`, body);
+function signIn(body) {
+  const promise = axios.post(`${BASE_URL}/login`, body)
 
-  return promise;
-}
-
-function getTransactions(token) {
-
-  const config = createConfig(token);
-
-  const promise = axios.get(`${BASE_URL}/transactions`, config);
-
-  return promise;
-}
-
-function getTotal(token) {
-  const config = createConfig(token);
-
-  const promise = axios.get(`${BASE_URL}/total`, config);
-
-  return promise;
+  return promise
 }
 
 const api = {
-  login,
   signUp,
-  registerTransaction,
-  getTransactions,
-  getTotal
+  signIn,
 }
 
-export default api;
+export default api

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div`
     margin: 40px 20px;
     width: 100%;
-    heigth: 200px;
+    height: 200px;
 
     p {
         padding-bottom: 10px;
