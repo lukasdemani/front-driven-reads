@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Page = styled.div`
+const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
@@ -14,19 +14,9 @@ const Page = styled.div`
 
 `
 
-const Container = styled.div`
-  width: 90%;
-  
-  background-color: #fff;
-
-  padding: 60px 0;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`
-
 const Form = styled.form`
+  width: 326px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +69,6 @@ const StyledLink = styled(Link)`
   align-self: center;
 `
 export {
-  Page,
   Container,
   Form,
   Input,
