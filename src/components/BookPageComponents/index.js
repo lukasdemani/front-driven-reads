@@ -1,0 +1,117 @@
+import styled from "styled-components";
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #f7f9fa;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+`
+
+const BookCover = styled.div`
+  width: 200px;
+  height: 220px;
+
+  img{
+    width: 100%;
+    object-fit: contain;
+  }
+`
+
+const BookInformations = styled.div`
+  width: 80%;
+  
+  color: gray;
+  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  
+  .title, .price{
+    font: bold 24px "Raleway";
+    color: #f28e62;
+  }
+  
+  .author{
+    font: normal 20px "Raleway";
+    color: gray;
+  }
+  
+  .description{
+    font: normal 18px "Raleway";
+  }
+`
+
+const BookDetails = styled.div`
+  width: 60%;
+
+  border-radius: 5px;
+  padding: 20px;
+
+  background-color: #fff;
+  
+  font: normal 16px "Raleway";
+
+  display: flex;  
+  flex-direction: column;
+  
+  p{
+    font: bold 20px "Raleway";
+    color: #f28e62;
+    padding-bottom: 20px;
+  }
+`
+
+const DetailsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+  row-gap: 15px;
+  
+  font: 16px "Raleway";
+
+  div{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  span{
+    font-weight: bold;
+    color: #F5A988;
+  }
+  
+  .text{  
+    font-weight: normal;
+    color: gray;
+  }
+`
+
+const AddToCartButton = styled.button`
+  box-sizing: border-box;
+
+  font: bold 20px "Raleway";
+  color: gray;
+  text-align: center;
+
+  width: 60%;
+
+  border: 2px solid #f28e62;
+  border-radius: 25px;
+  padding: 15px;
+
+`
+
+export {
+  Container,
+  BookCover,
+  BookInformations,
+  BookDetails,
+  DetailsContainer,
+  AddToCartButton
+}

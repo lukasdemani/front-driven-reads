@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import AuthContext from "./contexts/AuthContext";
-import { HomePage, SignInPage, SignUpPage } from "./pages/index.js"
+import { BookPage, HomePage, SignInPage, SignUpPage } from "./pages/index.js"
 
 export default function App() {
   const [auth, setAuth] = useState()
@@ -13,6 +13,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/register" element={<SignUpPage />} />
+          <Route path="/book" element={<BookPage />} />
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
