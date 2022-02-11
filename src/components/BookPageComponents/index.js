@@ -41,8 +41,19 @@ const BookInformations = styled.div`
     color: gray;
   }
   
-  .description, .subtitle{
+  .subtitle{
     font: normal 18px "Raleway";
+  }
+  `
+
+const BookDescription = styled.div`
+  font: normal 18px "Raleway";
+ 
+  .ver-mais{
+    color: black;
+    font-style: bold;
+
+    padding-top: 5px;
   }
 `
 
@@ -60,8 +71,8 @@ const BookDetails = styled.div`
   flex-direction: column;
   
   p{
-    font: bold 20px "Raleway";
-    color: #f28e62;
+    font: bold 22px "Raleway";
+    color: #F5A988;
     padding-bottom: 20px;
   }
 `
@@ -110,6 +121,7 @@ export {
   Container,
   BookCover,
   BookInformations,
+  BookDescription,
   BookDetails,
   DetailsContainer,
   AddToCartButton

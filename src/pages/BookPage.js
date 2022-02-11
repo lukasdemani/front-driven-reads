@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { AddToCartButton, BookCover, BookDetails, BookInformations, Container, DetailsContainer } from "../components/BookPageComponents"
+import { useNavigate, useParams } from "react-router-dom";
+import { AddToCartButton, BookCover, BookDescription, BookDetails, BookInformations, Container, DetailsContainer } from "../components/BookPageComponents"
 import Loader from "../components/Loader";
 import Logo from "../components/Logo"
 import api from "../services/api";
@@ -8,6 +8,8 @@ import api from "../services/api";
 function BookPage() {
   const { isbn } = useParams();
   const [book, setBook] = useState(null)
+  const [showMore, setShowMore] = useState(false)
+  let navigate = useNavigate()
 
   useEffect(() => renderBook(), [])
 
@@ -17,6 +19,14 @@ function BookPage() {
     promise.then(response => {
       setBook(response.data)
     })
+  }
+
+  function handleAddToCart() {
+    navigate("/bag")
+  }
+
+  function showText() {
+    setShowMore(!showMore)
   }
 
   return (
@@ -34,9 +44,21 @@ function BookPage() {
             {book.subtitle && <h2 className="subtitle">{book.subtitle}</h2>}
             <h3 className="author">{book.author}</h3>
             <p className="price">R$ {book.price}</p>
-            <p className="description">{book.description}</p>
+            <BookDescription showMore={showMore}>
+              {!showMore ?
+                <>
+                  {book.description.substr(0, 300)}
+                  <p className="ver-mais" onClick={showText}>Leia mais</p>
+                </>
+                :
+                <>
+                  {book.description}
+                  <p className="ver-mais" onClick={showText}>Leia menos</p>
+                </>
+              }
+            </BookDescription>
           </BookInformations>
-          <AddToCartButton>Adicionar ao Carrinho</AddToCartButton>
+          <AddToCartButton onClick={handleAddToCart}>Adicionar ao Carrinho</AddToCartButton>
           <BookDetails>
             <p>Detalhes</p>
             <DetailsContainer>
