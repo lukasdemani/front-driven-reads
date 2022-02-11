@@ -20,9 +20,16 @@ function signIn(body) {
   return promise
 }
 
+function getBook(params) {
+  const promise = axios.get(`${BASE_URL}/books/${params}`)
+
+  return promise
+}
+
 const api = {
   signUp,
   signIn,
+  getBook
 }
 
 export default api

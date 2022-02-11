@@ -14,11 +14,9 @@ const Container = styled.div`
 
 const BookCover = styled.div`
   width: 200px;
-  height: 220px;
 
   img{
     width: 100%;
-    object-fit: contain;
   }
 `
 
@@ -30,7 +28,7 @@ const BookInformations = styled.div`
   
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 
   
   .title, .price{
@@ -39,11 +37,11 @@ const BookInformations = styled.div`
   }
   
   .author{
-    font: normal 20px "Raleway";
+    font: bold 24px "Raleway";
     color: gray;
   }
   
-  .description{
+  .description, .subtitle{
     font: normal 18px "Raleway";
   }
 `
@@ -105,6 +103,7 @@ const AddToCartButton = styled.button`
   border-radius: 25px;
   padding: 15px;
 
+  cursor: pointer;
 `
 
 export {

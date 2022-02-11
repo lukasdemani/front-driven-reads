@@ -5,7 +5,7 @@ import { BookPage, HomePage, SignInPage, SignUpPage } from "./pages/index.js"
 
 export default function App() {
   const [auth, setAuth] = useState()
-  console.log(auth)
+
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
       <BrowserRouter>
@@ -13,7 +13,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/register" element={<SignUpPage />} />
-          <Route path="/book" element={<BookPage />} />
+          <Route path="/books/:isbn" element={<BookPage />} />
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
