@@ -1,13 +1,16 @@
-import { Button, Item, Container } from "../components/BagComponents/index";
+import { Button, ItemBook, Container } from "../components/BagComponents/index";
 import Header from "../components/HomeComponents/Header/index";
-import api from '../service/api';
+import { useState, useEffect } from "react";
 
 export default function BagPage() {
+    const [bag, setBag] = useState([]);
+
+    
     return (
         <Container>
             <Header></Header>
-            <Item>teste</Item>
+            <ItemBook>teste</ItemBook>
             <Button>Finalizar compra</Button>
         </Container>
-    );
+    )
 }

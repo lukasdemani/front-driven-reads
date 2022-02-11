@@ -1,9 +1,9 @@
 import Button from "./Button";
-import Item from "./Item";
+import ItemBook from "./ItemBook";
 import Container from "./Container";
 
 export {
     Button,
-    Item,
+    ItemBook,
     Container
-};
+}
