@@ -5,7 +5,7 @@ import { HomePage, SignInPage, SignUpPage } from "./pages/index.js"
 
 export default function App() {
   const [auth, setAuth] = useState()
-  console.log(auth)
+
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
       <BrowserRouter>
