@@ -10,8 +10,8 @@ export default function App() {
     <AuthContext.Provider value={{ auth, setAuth }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<SignInPage />} />
+          <Route path="/livros" element={<HomePage />} />
+          <Route path="/" element={<SignInPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/livro/:isbn" element={<BookPage />} />
         </Routes>

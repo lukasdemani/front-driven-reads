@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AddToCartButton, BookCover, BookDescription, BookDetails, BookInformations, Container, DetailsContainer } from "../components/BookPageComponents"
+import Header from "../components/Header";
 import Loader from "../components/Loader";
 import Logo from "../components/Logo"
 import AuthContext from "../contexts/AuthContext";
@@ -37,6 +38,7 @@ function BookPage() {
 
   return (
     <Container>
+      <Header />
       <Logo />
       {!book ?
         <Loader />

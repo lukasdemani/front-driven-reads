@@ -32,7 +32,7 @@ function SignUpPage() {
 
     try {
       await api.signUp({ name, email, password })
-      navigate("/login")
+      navigate("/")
     } catch (error) {
       Swal.fire({ icon: 'error', text: error.response.data })
       setDisabled(false)
@@ -79,7 +79,7 @@ function SignUpPage() {
           }
         </Button>
       </Form>
-      <StyledLink to="/login">Já tem uma conta? Entre agora!</StyledLink>
+      <StyledLink to="/">Já tem uma conta? Entre agora!</StyledLink>
     </Container>
   )
 
