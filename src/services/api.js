@@ -30,6 +30,12 @@ function addToCart(book, token) {
   const headers = createConfig(token)
 
   const promise = axios.post(`${BASE_URL}/bag`, book, headers)
+}
+
+function getBag(token) {
+  const headers = createConfig(token)
+
+  const promise = axios.get(`${BASE_URL}/bag`, headers)
 
   return promise
 }
@@ -38,7 +44,8 @@ const api = {
   signUp,
   signIn,
   getBook,
-  addToCart
+  addToCart,
+  getBag
 }
 
 export default api
