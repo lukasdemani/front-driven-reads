@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AddToCartButton, BookCover, BookDescription, BookDetails, BookInformations, Container, DetailsContainer } from "../components/BookPageComponents"
 import Loader from "../components/Loader";
 import Logo from "../components/Logo"
+import AuthContext from "../contexts/AuthContext";
 import api from "../services/api";
 
 function BookPage() {
   const { isbn } = useParams();
   const [book, setBook] = useState(null)
   const [showMore, setShowMore] = useState(false)
+  const { auth } = useContext(AuthContext)
   let navigate = useNavigate()
 
   useEffect(() => renderBook(), [])
@@ -21,8 +23,12 @@ function BookPage() {
     })
   }
 
-  function handleAddToCart() {
-    navigate("/bag")
+  function handleAddToCart(book) {
+    console.log(book, auth.token)
+
+    const promise = api.addToCart(book, auth.token)
+
+    promise.then(() => navigate("/carrinho"))
   }
 
   function showText() {
@@ -48,17 +54,17 @@ function BookPage() {
               {!showMore ?
                 <>
                   {book.description.substr(0, 300)}
-                  <p className="ver-mais" onClick={showText}>Leia mais</p>
+                  <p className="more" onClick={showText}>Leia mais</p>
                 </>
                 :
                 <>
                   {book.description}
-                  <p className="ver-mais" onClick={showText}>Leia menos</p>
+                  <p className="less" onClick={showText}>Leia menos</p>
                 </>
               }
             </BookDescription>
           </BookInformations>
-          <AddToCartButton onClick={handleAddToCart}>Adicionar ao Carrinho</AddToCartButton>
+          <AddToCartButton onClick={() => handleAddToCart(book)}>Adicionar ao Carrinho</AddToCartButton>
           <BookDetails>
             <p>Detalhes</p>
             <DetailsContainer>

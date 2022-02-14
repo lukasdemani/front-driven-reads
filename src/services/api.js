@@ -26,10 +26,19 @@ function getBook(params) {
   return promise
 }
 
+function addToCart(book, token) {
+  const headers = createConfig(token)
+
+  const promise = axios.post(`${BASE_URL}/bag`, book, headers)
+
+  return promise
+}
+
 const api = {
   signUp,
   signIn,
-  getBook
+  getBook,
+  addToCart
 }
 
 export default api

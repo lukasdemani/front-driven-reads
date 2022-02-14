@@ -49,11 +49,13 @@ const BookInformations = styled.div`
 const BookDescription = styled.div`
   font: normal 18px "Raleway";
  
-  .ver-mais{
+  .more, .less{
     color: black;
     font-style: bold;
 
     padding-top: 5px;
+
+    cursor: pointer;
   }
 `
 

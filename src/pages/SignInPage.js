@@ -55,7 +55,7 @@ function SignInPage() {
           }
         </Button>
       </Form>
-      <StyledLink to="/register">Primeira vez? Cadastre-se</StyledLink>
+      <StyledLink to="/cadastro">Primeira vez? Cadastre-se</StyledLink>
     </Container>
   )
 }

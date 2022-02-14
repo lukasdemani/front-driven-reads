@@ -4,7 +4,7 @@ import AuthContext from "./contexts/AuthContext";
 import { BookPage, HomePage, SignInPage, SignUpPage } from "./pages/index.js"
 
 export default function App() {
-  const [auth, setAuth] = useState()
+  const [auth, setAuth] = useState() // tem o token e o nome
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
@@ -12,8 +12,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<SignInPage />} />
-          <Route path="/register" element={<SignUpPage />} />
-          <Route path="/books/:isbn" element={<BookPage />} />
+          <Route path="/cadastro" element={<SignUpPage />} />
+          <Route path="/livro/:isbn" element={<BookPage />} />
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
