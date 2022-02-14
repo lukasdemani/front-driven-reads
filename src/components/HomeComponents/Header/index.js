@@ -1,30 +1,11 @@
 import { useState } from "react";
-import { Bag, Container, LogoText, SearchBox, User, StyledLink } from "./style/index";
-import api from '../../../service/api'
+import { useNavigate } from "react-router-dom";
+import { Bag, Container, SearchBox, User } from "./style/index";
+import Logo from "../../Logo"
 
-export default function Header(){
+export default function Header() {
     const [userName, setUserName] = useState();
-    const [search, setSearch] = useState();
-    const [booksSearch, setBooksSearch] = useState([]);
-
-    function handleChange(e) {
-        setSearch(e.target.value);
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-
-        console.log(search)
-        const promise = api.searchBook({ search });
-        
-        promise.then((promise) => {
-            setBooksSearch(promise.data);
-            console.log(promise.data);
-        });
-        promise.catch(() => {
-            alert('Erro, tente novamente');
-        });
-    }
+    const navigate = useNavigate()
 
     return (
         <Container>
@@ -32,27 +13,25 @@ export default function Header(){
                 <User>
                     {userName ?
                         <>Olá, {userName}</>
-                    :
-                        <>
+                        :
+                        <div onClick={() => navigate("/login")}>
                             <ion-icon name="log-in-outline"></ion-icon>
                             <p>Entre ou cadastre-se</p>
-                        </>
+                        </div>
                     }
                 </User>
-                
+
                 <Bag>
-                    <ion-icon name="cart-outline"></ion-icon>
+                    <ion-icon name="cart-outline" onClick={() => navigate("/bag")}></ion-icon>
                 </Bag>
             </span>
 
-            <LogoText>
-                <h1>Driven Reads</h1>
-            </LogoText>
+            <Logo />
 
-            <SearchBox>
+            {/* <SearchBox>
                 <input type='text' placeholder='Busca' onChange={(e) => handleChange(e)}></input>
                 <ion-icon name="search-outline" onClick={handleSubmit}></ion-icon>
-            </SearchBox>
+            </SearchBox> */}
         </Container>
     )
 }

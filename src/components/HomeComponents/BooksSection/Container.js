@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-const Container = styled.div `
-    width: auto;
-    padding-left: 15px;
+const Container = styled.div`
+    margin: 40px 20px;
+    width: 100%;
+    height: 200px;
+
+    p {
+        padding-bottom: 10px;
+    }
 `;
 
 export default Container;
