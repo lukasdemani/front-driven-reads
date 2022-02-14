@@ -20,9 +20,18 @@ function signIn(body) {
   return promise
 }
 
+function getBag(token) {
+  const headers = createConfig(token)
+
+  const promise = axios.get(`${BASE_URL}/bag`, headers)
+
+  return promise
+}
+
 const api = {
   signUp,
   signIn,
+  getBag
 }
 
 export default api
