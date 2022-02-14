@@ -30,6 +30,8 @@ function addToCart(book, token) {
   const headers = createConfig(token)
 
   const promise = axios.post(`${BASE_URL}/bag`, book, headers)
+
+  return promise
 }
 
 function getBag(token) {

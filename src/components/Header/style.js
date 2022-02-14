@@ -29,6 +29,8 @@ const SearchBox = styled.div`
 const Cart = styled.div`
   position: relative;
 
+  cursor: pointer;
+
   .counter{
     background-color: lightcoral;
     width: 15px;

@@ -25,11 +25,15 @@ function BookPage() {
   }
 
   function handleAddToCart(book) {
-    console.log(book, auth.token)
+    const infosBook = {
+      title: book.title,
+      author: book.author,
+      price: book.price
+    }
 
-    const promise = api.addToCart(book, auth.token)
+    const promise = api.addToCart(infosBook, auth.token)
 
-    promise.then(() => navigate("/carrinho"))
+    promise.then(() => navigate("/checkout"))
   }
 
   function showText() {
