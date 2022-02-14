@@ -21,7 +21,7 @@ function SignInPage() {
     const promise = api.signIn({ email, password })
 
     promise.then(response => {
-      setAuth(response.data)
+      setAuth(response.data.auth)
       navigate("/livros")
     }).catch(error => {
       Swal.fire({ icon: 'error', text: error.response.data })

@@ -38,6 +38,12 @@ function addToCart(book, token) {
 
 function getBag(token) {
   const headers = createConfig(token)
+
+  const promise = axios.get(`${BASE_URL}/bag`, headers);  
+
+  return promise;
+}
+
 function getBooks(body) {
 
   //const config = createConfig(token);
@@ -47,16 +53,17 @@ function getBooks(body) {
   return promise;
 }
 
-function sendToBag(body){
-  const promise = axios.post(`${BASE_URL}/bag`, body)
+
+function addOrder(body, token) {
+  const config = createConfig(token);
+
+  const promise = axios.put(`${BASE_URL}/add-order`, body, config)
 
   return promise
 }
 
-function getBag(body){
-  // const config = createConfig(token);
-
-  const promise = axios.get(`${BASE_URL}/bag`, body)
+function searchBook(params){
+  const promise = axios.get(`${BASE_URL}/books/${params}`)
 
   return promise
 }
@@ -67,8 +74,9 @@ const api = {
   getBook,
   addToCart,
   getBooks,
-  sendToBag,
-  getBag
+  getBag,
+  addOrder,
+  searchBook
 }
 
 export default api

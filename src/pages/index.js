@@ -4,6 +4,7 @@ import SignUpPage from "./SignUpPage";
 import BookPage from "./BookPage";
 import CheckoutPage from "./CheckoutPage";
 import  BagPage  from "./BagPage";
+import SearchPage from "./SearchPage";
 
 
 export {
@@ -12,5 +13,6 @@ export {
   SignUpPage,
   BookPage,
   CheckoutPage,
-  BagPage
+  BagPage,
+  SearchPage
 }

@@ -16,14 +16,20 @@ const Container = styled.div`
   }
 `;
 
-const SearchBox = styled.div`
+const SearchBox = styled.form`
   width: 40vw;
   
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 
   border: 2px solid lightgray;
   border-radius: 5px;
   padding: 5px;
+
+  ion-icon {
+    font-size: 15px;
+  }
 `;
 
 const Cart = styled.div`

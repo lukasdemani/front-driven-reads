@@ -13,10 +13,11 @@ function BookPage() {
   const [showMore, setShowMore] = useState(false)
   const { auth } = useContext(AuthContext)
   let navigate = useNavigate()
-
+  
   useEffect(() => renderBook(), [])
 
   function renderBook() {
+    
     const promise = api.getBook(isbn)
 
     promise.then(response => {

@@ -1,21 +1,22 @@
 import { Container, Book, Cover, BooksScroll, TitleSection } from "../components/HomeComponents/BooksSection/index";
-import Header from "../components/HomeComponents/Header/index";
+import Header from "../components/Header/index"
 import api from '../services/api';
 import { useState, useEffect, useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
+import { useNavigate } from "react-router";
 
 
 export default function HomePage() {
     const [allBooks, setAllBooks] = useState([]);
+    let filteredBooks = [];
     const { auth } = useContext(AuthContext);
+    let navigate = useNavigate();
    
     useEffect(() => {
         const promise = api.getBooks(auth);
 
         promise.then((response) => {
-            console.log(response.data.books);
             setAllBooks(response.data.books);
-            console.log(allBooks);
         });
         promise.catch((error) => {
             console.log(error);
@@ -24,41 +25,35 @@ export default function HomePage() {
       }, []);
 
     function filterBooks(section){
-        allBooks.filter((book) => book)
+        filteredBooks = allBooks.filter((book) => book.category == section)
+    }
+
+    function handleGetBook(isbn){
+        navigate(`/livro/${isbn}`);
     }
     
     return (
         <>
             <Header></Header>
             <Container>
-                <TitleSection>Mais Vendidos</TitleSection>
+                <TitleSection>Romance</TitleSection>
                 <BooksScroll>
-                {allBooks.map((book) => 
-                    <Book>
-                        <Cover>
-                            <img src={book.coverUrl}></img>
-                        </Cover>
-                        <p>{book.title}</p>
-                    </Book>
+                    {filterBooks("Romance")}
+                    {filteredBooks.map((book) => 
+                        <Book onClick={() => handleGetBook(book.ISBN)}>
+                            <Cover>
+                                <img src={book.coverUrl}></img>
+                            </Cover>
+                            <p>{book.title}</p>
+                        </Book>
                 )}
                 </BooksScroll>
 
-                <TitleSection>Recomendados</TitleSection>
+                <TitleSection>Coleções</TitleSection>
                 <BooksScroll>
-                {allBooks.map((book) => 
-                    <Book>
-                        <Cover>
-                        <img src={book.coverUrl}></img>
-                        </Cover>
-                        <p>{book.title}</p>
-                    </Book>
-                )}
-                </BooksScroll>
-
-                <TitleSection>Clássicos</TitleSection>
-                <BooksScroll>
-                {allBooks.map((book) => 
-                    <Book>
+                {filterBooks("Coleções")}
+                {filteredBooks.map((book) => 
+                    <Book onClick={() => handleGetBook(book.ISBN)}>
                         <Cover>
                         <img src={book.coverUrl}></img>
                         </Cover>
@@ -67,10 +62,36 @@ export default function HomePage() {
                 )}
                 </BooksScroll>
 
-                <TitleSection>Infanto-juvenil</TitleSection>
+                <TitleSection>Literatura Nacional</TitleSection>
                 <BooksScroll>
-                {allBooks.map((book) => 
-                    <Book>
+                {filterBooks("Literatura Nacional")}
+                {filteredBooks.map((book) => 
+                    <Book onClick={() => handleGetBook(book.ISBN)}>
+                        <Cover>
+                        <img src={book.coverUrl}></img>
+                        </Cover>
+                        <p>{book.title}</p>
+                    </Book>
+                )}
+                </BooksScroll>
+
+                <TitleSection>Fantasia</TitleSection>
+                <BooksScroll>
+                {filterBooks("Fantasia")}
+                {filteredBooks.map((book) => 
+                    <Book onClick={() => handleGetBook(book.ISBN)}>
+                        <Cover>
+                        <img src={book.coverUrl}></img>
+                        </Cover>
+                        <p>{book.title}</p>
+                    </Book>
+                )}
+                </BooksScroll>
+                <TitleSection>Programação</TitleSection>
+                <BooksScroll>
+                {filterBooks("Programação")}
+                {filteredBooks.map((book) => 
+                    <Book onClick={() => handleGetBook(book.ISBN)}>
                         <Cover>
                         <img src={book.coverUrl}></img>
                         </Cover>

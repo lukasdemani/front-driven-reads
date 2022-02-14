@@ -18,7 +18,8 @@ function CheckoutPage() {
     const promise = api.getBag(auth.token)
 
     promise.then(response => {
-      setBagInfo(response.data)
+      console.log(response.data)
+      setBagInfo(response.data.bagInfo)
       setLoading(false)
     })
   }
@@ -29,7 +30,15 @@ function CheckoutPage() {
   function handleClick() {
     Swal.fire({ icon: 'success', text: "Pedido finalizado com sucesso!" })
 
-    // adicionar ao carrinho do usuário
+    function handleClick() {
+      Swal.fire({ icon: 'success', text: "Pedido finalizado com sucesso!" })
+  
+      const promise = api.addOrder(bag, auth.token)
+  
+      promise.then(() => console.log("deu bom"))
+  
+      navigate("/")
+    }
 
     navigate("/")
   }
