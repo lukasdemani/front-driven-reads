@@ -11,7 +11,7 @@ function SignInPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [disabled, setDisabled] = useState(false)
-  const { setAuth } = useContext(AuthContext)
+  const { setAuth, auth } = useContext(AuthContext)
   let navigate = useNavigate()
 
   function handleSubmit(e) {

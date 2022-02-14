@@ -1,14 +1,14 @@
 
 import Book from './Book';
+import BooksScroll from './BooksScroll';
 import Container from './Container';
+import Cover from './Cover';
+import TitleSection from './TitleSection';
 
-export default function BooksSection(props) {
-    return (
-        <Container>
-            <p>{props.titleSection}</p>
-            <Book>
-                teste
-            </Book>
-        </Container>
-    );
+export {
+    Book,
+    Container,
+    Cover,
+    BooksScroll,
+    TitleSection
 }
