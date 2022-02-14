@@ -2,7 +2,8 @@ import axios from "axios"
 import dotenv from "dotenv"
 dotenv.config()
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL
+// const BASE_URL = process.env.REACT_APP_API_BASE_URL
+const BASE_URL = 'http://localhost:5000';
 
 function createConfig(token) {
   return { headers: { Authorization: `Bearer ${token}` } };
@@ -20,6 +21,7 @@ function signIn(body) {
   return promise
 }
 
+
 function getBook(params) {
   const promise = axios.get(`${BASE_URL}/books/${params}`)
 
@@ -36,8 +38,25 @@ function addToCart(book, token) {
 
 function getBag(token) {
   const headers = createConfig(token)
+function getBooks(body) {
 
-  const promise = axios.get(`${BASE_URL}/bag`, headers)
+  //const config = createConfig(token);
+
+  const promise = axios.get(`${BASE_URL}/books`, body);
+
+  return promise;
+}
+
+function sendToBag(body){
+  const promise = axios.post(`${BASE_URL}/bag`, body)
+
+  return promise
+}
+
+function getBag(body){
+  // const config = createConfig(token);
+
+  const promise = axios.get(`${BASE_URL}/bag`, body)
 
   return promise
 }
@@ -47,6 +66,8 @@ const api = {
   signIn,
   getBook,
   addToCart,
+  getBooks,
+  sendToBag,
   getBag
 }
 
