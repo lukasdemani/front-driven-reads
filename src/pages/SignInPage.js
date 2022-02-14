@@ -22,7 +22,7 @@ function SignInPage() {
 
     promise.then(response => {
       setAuth(response.data)
-      navigate("/")
+      navigate("/livros")
     }).catch(error => {
       Swal.fire({ icon: 'error', text: error.response.data })
       setDisabled(false)
@@ -55,7 +55,7 @@ function SignInPage() {
           }
         </Button>
       </Form>
-      <StyledLink to="/register">Primeira vez? Cadastre-se</StyledLink>
+      <StyledLink to="/cadastro">Primeira vez? Cadastre-se</StyledLink>
     </Container>
   )
 }

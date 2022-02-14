@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
 import api from "../../services/api";
 import { SearchBox, Container, Cart } from "../Header/style";
@@ -7,6 +7,7 @@ import { SearchBox, Container, Cart } from "../Header/style";
 export default function Header() {
   const [bag, setBag] = useState('')
   const { auth } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   useEffect(() => getBag(), [])
 
@@ -24,7 +25,7 @@ export default function Header() {
         <input type='text' placeholder='Busca'></input>
       </SearchBox>
 
-      <Cart>
+      <Cart onClick={() => navigate("/carrinho")}>
         <ion-icon name="cart-outline"></ion-icon>
         {bag.length !== 0 && <div className="counter">{bag.length}</div>}
       </Cart>

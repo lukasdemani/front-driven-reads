@@ -21,6 +21,23 @@ function signIn(body) {
   return promise
 }
 
+
+function getBook(params) {
+  const promise = axios.get(`${BASE_URL}/books/${params}`)
+
+  return promise
+}
+
+function addToCart(book, token) {
+  const headers = createConfig(token)
+
+  const promise = axios.post(`${BASE_URL}/bag`, book, headers)
+
+  return promise
+}
+
+function getBag(token) {
+  const headers = createConfig(token)
 function getBooks(body) {
 
   //const config = createConfig(token);
@@ -47,6 +64,8 @@ function getBag(body){
 const api = {
   signUp,
   signIn,
+  getBook,
+  addToCart,
   getBooks,
   sendToBag,
   getBag
