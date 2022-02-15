@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -11,8 +11,13 @@ function SignInPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [disabled, setDisabled] = useState(false)
-  const { setAuth, auth } = useContext(AuthContext)
+  const { setAuth, bag } = useContext(AuthContext)
   let navigate = useNavigate()
+
+  useEffect(() => {
+    if (bag.lenght !== 0)
+      deleteBag()
+  })
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -27,6 +32,10 @@ function SignInPage() {
       Swal.fire({ icon: 'error', text: error.response.data })
       setDisabled(false)
     })
+  }
+
+  async function deleteBag() {
+    await api.deleteBag()
   }
 
   return (

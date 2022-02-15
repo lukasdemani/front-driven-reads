@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import AuthContext from "./contexts/AuthContext";
-import { BookPage, HomePage, SignInPage, SignUpPage, CheckoutPage, BagPage, SearchPage } from "./pages/index.js"
+import { BookPage, HomePage, SignInPage, SignUpPage, CheckoutPage, BagPage } from "./pages/index.js"
 
 export default function App() {
   const [auth, setAuth] = useState()
+  const [bag, setBag] = useState([])
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth }}>
+    <AuthContext.Provider value={{ auth, setAuth, bag, setBag }}>
       <BrowserRouter>
         <Routes>
           <Route path="/livros" element={<HomePage />} />
@@ -15,8 +16,7 @@ export default function App() {
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/livro/:isbn" element={<BookPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/bag" element={<BagPage />} />
-          <Route path="/busca/:search" element={<SearchPage />} />
+          <Route path="/carrinho" element={<BagPage />} />
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>

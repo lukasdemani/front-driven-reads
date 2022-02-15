@@ -16,7 +16,7 @@ const Container = styled.div`
   }
 `;
 
-const SearchBox = styled.form`
+const SearchBox = styled.div`
   width: 40vw;
   
   font-size: 14px;

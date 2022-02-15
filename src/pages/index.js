@@ -3,8 +3,7 @@ import SignInPage from "./SignInPage";
 import SignUpPage from "./SignUpPage";
 import BookPage from "./BookPage";
 import CheckoutPage from "./CheckoutPage";
-import  BagPage  from "./BagPage";
-import SearchPage from "./SearchPage";
+import BagPage from "./BagPage";
 
 
 export {
@@ -14,5 +13,4 @@ export {
   BookPage,
   CheckoutPage,
   BagPage,
-  SearchPage
 }

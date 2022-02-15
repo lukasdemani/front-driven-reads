@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
-const AllItems = styled.div ` 
+const AllItems = styled.div` 
     width: 100%;
+    height: 300px;
     font-size: 22px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-bottom: 20px;
+    gap: 35px;
+    margin: 20px 0;
+    overflow-y: scroll;
 
     span{
         padding-top: 15px;

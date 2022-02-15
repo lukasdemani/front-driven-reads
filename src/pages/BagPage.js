@@ -1,39 +1,30 @@
 import { Button, ItemBook, Container, AllItems } from "../components/BagComponents/index";
-import Header from "../components/HomeComponents/Header/index";
-import { useState, useEffect } from "react";
-import api from '../services/api';
+import Header from "../components/Header/index";
+import { useContext } from "react/cjs/react.development";
+import AuthContext from "../contexts/AuthContext";
+import { StyledLink } from "../components/FormComponents";
+import { useNavigate } from "react-router-dom";
 
 export default function BagPage() {
-    const [bag, setBag] = useState([]);
-    const [total, setTotal] = useState();
-    
+  const { bag } = useContext(AuthContext)
+  const navigate = useNavigate()
 
-    useEffect(() => {
-        const promise = api.getBag(bag);
-
-        promise.then((response) => {
-            setBag(response.data);
-            console.log(bag[0]);
-        });
-
-        promise.catch((error) => {
-            console.log(error);
-        });
-    
-      }, []);
-
-    return (
-        <Container>
-            <Header></Header>
-            <AllItems>
-                {bag.map((item) => 
-                <ItemBook>
-                    <p>{item.title}</p>
-                    <p>{item.price}</p>
-                </ItemBook>)}
-                <span>Total: {total}</span>
-            </AllItems>
-            <Button>Finalizar compra</Button>
-        </Container>
-    )
+  return (
+    <>
+      <Header />
+      <Container>
+        <AllItems>
+          {bag.items.map((item) =>
+            <ItemBook>
+              <img src={item.coverUrl} alt={item.title} />
+              <p className="title">{item.title}</p>
+              <p>{item.price}</p>
+            </ItemBook>)}
+          <span>Total: {bag.total}</span>
+        </AllItems>
+        <Button onClick={() => navigate("/checkout")}>Finalizar compra</Button>
+        <StyledLink to="/livros">Continuar comprando</StyledLink>
+      </Container>
+    </>
+  )
 }

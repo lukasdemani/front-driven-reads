@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AddToCartButton, BookCover, BookDescription, BookDetails, BookInformations, Container, DetailsContainer } from "../components/BookPageComponents"
 import Header from "../components/Header";
 import Loader from "../components/Loader";
-import Logo from "../components/Logo"
 import AuthContext from "../contexts/AuthContext";
 import api from "../services/api";
 
@@ -13,12 +12,11 @@ function BookPage() {
   const [showMore, setShowMore] = useState(false)
   const { auth } = useContext(AuthContext)
   let navigate = useNavigate()
-  
+
   useEffect(() => renderBook(), [])
 
   function renderBook() {
-    
-    const promise = api.getBook(isbn)
+    const promise = api.getBook(isbn, auth.token)
 
     promise.then(response => {
       setBook(response.data)
@@ -29,12 +27,13 @@ function BookPage() {
     const infosBook = {
       title: book.title,
       author: book.author,
-      price: book.price
+      price: book.price,
+      coverUrl: book.coverUrl
     }
 
     const promise = api.addToCart(infosBook, auth.token)
 
-    promise.then(() => navigate("/checkout"))
+    promise.then(() => navigate("/carrinho"))
   }
 
   function showText() {
@@ -44,13 +43,12 @@ function BookPage() {
   return (
     <Container>
       <Header />
-      <Logo />
       {!book ?
         <Loader />
         :
         <>
           <BookCover>
-            <img src={book.coverUrl} />
+            <img src={book.coverUrl} alt={book.title} />
           </BookCover>
           <BookInformations>
             <h2 className="title">{book.title}</h2>
